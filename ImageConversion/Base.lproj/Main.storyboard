@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,58 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImageConversion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LKq-nF-WET">
+                                <rect key="frame" x="57" y="44" width="300" height="300"/>
+                                <color key="backgroundColor" red="1" green="0.084393614219999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="fh3-zW-e9Q"/>
+                                    <constraint firstAttribute="height" constant="300" id="mcM-V5-Kbv"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NtC-VA-7Ae">
+                                <rect key="frame" x="57" y="344" width="300" height="300"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGs-e1-8UO">
+                                <rect key="frame" x="0.0" y="644" width="414" height="120"/>
+                                <color key="backgroundColor" red="0.0" green="0.7551699288" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Convert">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="convertImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tba-K6-ZmZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LKq-nF-WET" firstAttribute="height" secondItem="NtC-VA-7Ae" secondAttribute="height" id="2nz-UW-k5e"/>
+                            <constraint firstItem="gGs-e1-8UO" firstAttribute="top" secondItem="NtC-VA-7Ae" secondAttribute="bottom" id="6Gh-Wp-Cl4"/>
+                            <constraint firstItem="LKq-nF-WET" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="85v-Yh-uGk"/>
+                            <constraint firstItem="LKq-nF-WET" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="B9J-hC-PiD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gGs-e1-8UO" secondAttribute="trailing" id="Dww-pv-7NF"/>
+                            <constraint firstItem="gGs-e1-8UO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IKJ-4v-wbG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gGs-e1-8UO" secondAttribute="bottom" constant="98" id="S26-wL-V1g"/>
+                            <constraint firstItem="NtC-VA-7Ae" firstAttribute="top" secondItem="LKq-nF-WET" secondAttribute="bottom" id="Tem-cq-s3h"/>
+                            <constraint firstItem="NtC-VA-7Ae" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ayq-5f-sxe"/>
+                            <constraint firstItem="NtC-VA-7Ae" firstAttribute="width" secondItem="LKq-nF-WET" secondAttribute="width" id="qky-gi-t1U"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="convertedImage" destination="NtC-VA-7Ae" id="B0V-Pb-4Mh"/>
+                        <outlet property="oldImage" destination="LKq-nF-WET" id="9l9-pU-67C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </scene>
     </scenes>
 </document>
